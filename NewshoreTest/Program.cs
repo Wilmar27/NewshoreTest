@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Configuramos conexión a sqlServer
 builder.Services.AddDbContext<AplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AzureDb"))
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbLocal"))
     );
 
 // Add services to the container.

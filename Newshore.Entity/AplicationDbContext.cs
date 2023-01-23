@@ -1,18 +1,21 @@
 ﻿namespace Newshore.Entity
 {
     using Microsoft.EntityFrameworkCore;
-    using Newshore.Entities.Entities.Flight;
-    using Newshore.Entities.Entities.Journey;
-    using Newshore.Entities.Entities.Transport;
+    using Newshore.Entities.DbContextEntities.FlightDto;
+    using Newshore.Entities.DbContextEntities.JourneyDto;
+    using Newshore.Entities.DbContextEntities.JourneyFlight;
+    using Newshore.Entities.DbContextEntities.TransportDto;
 
     public class AplicationDbContext: DbContext
     {
-        public AplicationDbContext(DbContextOptions<AplicationDbContext> options) : base(options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer("Server=DESKTOP-1ONFS98\\SQLEXPRESS;Database=Newshore;Trusted_Connection=True;Encrypt=False");
         }
-        public DbSet<Flight> Flights { get; set; }
-        public DbSet<Journey> Journey { get; set; }
-        public DbSet<Transport > Transport { get; set; }
+        public DbSet<FlightDto> Flights { get; set; }
+        public DbSet<JourneyDto> Journey { get; set; }
+        public DbSet<JourneyFlight> JourneyFlight { get; set; }
+        public DbSet<TransportDto> Transport { get; set; }
 
     }
 }
