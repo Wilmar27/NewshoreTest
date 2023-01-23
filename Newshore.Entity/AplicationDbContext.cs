@@ -8,6 +8,7 @@
 
     public class AplicationDbContext: DbContext
     {
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=DESKTOP-1ONFS98\\SQLEXPRESS;Database=Newshore;Trusted_Connection=True;Encrypt=False");
